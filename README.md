@@ -9,15 +9,13 @@ Per installare Sleepy_mongoose è necessario avere sulla macchina pymongo. Esegu
 
 <CODE>sudo easy_install pymong </CODE>
 
-<p>Successivamente effettuare il download da: https://github.com/mongodb-labs/sleepy.mongoose.</p> 
-
-<p>Posizionarsi nella cartella scaricata e lanciare il comando:</p>
-
 <CODE>python httpd.py</CODE>
 
 <p>A questo punto il server è online!</p>
 
 
+### NOTA
+Per la documentazione di Sleepy_mongoose vedere questo link: https://github.com/mongodb-labs/sleepy.mongoose/wiki
 
 
 
