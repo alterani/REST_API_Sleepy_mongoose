@@ -13,7 +13,7 @@
 # limitations under the License.
 
 from bson.son import SON
-from pymongo import MongoClient
+from pymongo import MongoClient, ASCENDING, DESCENDING
 from pymongo.errors import ConnectionFailure, ConfigurationError, OperationFailure, AutoReconnect
 from bson import json_util
 
@@ -51,7 +51,8 @@ class MongoHandler:
             return self.connections[name]
         
         try:
-            connection = Connection(uri, network_timeout = 2)
+           # connection = MongoClient(uri, network_timeout = 2)
+           connection = MongoClient(uri)
         except (ConnectionFailure, ConfigurationError):
             return None
 
@@ -167,7 +168,7 @@ class MongoHandler:
 
         if name == None:
             name = "default"
-
+		
         conn = self._get_connection(name, uri)
         if conn != None:
             out('{"ok" : 1, "server" : "%s", "name" : "%s"}' % (uri, name))
@@ -241,8 +242,10 @@ class MongoHandler:
         if 'skip' in args:
             skip = int(args['skip'][0])
 
-        cursor = conn[db][collection].find(spec=criteria, fields=fields, limit=limit, skip=skip)
-
+        #cursor = conn[db][collection].find(spec=criteria, fields=fields, limit=limit, skip=skip)
+        
+        cursor = conn[db][collection].find(criteria)
+        
         sort = None
         if 'sort' in args:
             sort = self._get_son(args['sort'][0], out)
