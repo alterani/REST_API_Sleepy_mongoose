@@ -9,6 +9,10 @@ Per installare Sleepy_mongoose è necessario avere sulla macchina pymongo. Esegu
 
 <CODE>sudo easy_install pymong </CODE>
 
+
+#COMANDO START ESECUZIONE REST API SERVER
+
+Posizionarsi nella cartella <b> sleepymongoose </b> che si trova nella cartella dell'applicazione e lanciare il comando: 
 <CODE>python httpd.py</CODE>
 
 <p>A questo punto il server è online!</p>

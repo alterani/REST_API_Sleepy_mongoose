@@ -214,6 +214,7 @@ class MongoHTTPRequest(BaseHTTPRequestHandler):
         (uri, args, type) = self.process_uri("POST")
         if uri == None:
             return
+        print args
         self.call_handler(uri, args)
 
     @staticmethod
